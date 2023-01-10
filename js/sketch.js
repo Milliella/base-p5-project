@@ -2,14 +2,14 @@ let x = 0;
 let y = 0;
 let theta = 0;
 let inc = 0.05; //the amount of increment the offset each frame
-let offset = 0; //the amount offfset from beginning of wave
+let offset = 0; //the amount offset from beginning of wave
 let amplitude;
 let frequency;
 let maxAngle;
 
 function setup() {
-    amplitude = windowHeight / 8;
-    frequency = windowWidth / 8;
+    amplitude = windowHeight / 10;
+    frequency = windowWidth / 10;
     maxAngle = (windowWidth / frequency) * TWO_PI;
     createCanvas(windowWidth, windowHeight);
     noStroke();
@@ -20,21 +20,22 @@ function setup() {
 function draw() {
     background(0);
     noStroke();
-    let length = 20;
+    let length = 10;
     while (theta < maxAngle + offset) {
         amplitude = sin(theta - offset) * (windowHeight/2);
         amplitude = ((theta-offset)/maxAngle)* (windowHeight/2);
         for (i = length; i > 0; i --){
         y = sin(theta - (i * 0.05)) * amplitude;
-        fill(255 - (255/length * i), 0, 0);
-        ellipse(x, y + height / 2, 20); //shape of the little trails 
-        square(x, height/2 + y, 16);
+        fill(100 - (100/length * i), 0, 0);
+        // ellipse(x, y + height / 2, 20); //shape of the little trails 
+        square(x, height/2 + y, 90);
         }
         for (i = length; i > 0; i --){
             y = sin(theta - (i * 0.05)) * amplitude;
             fill(255 - (255/length * i), 0,);
-            ellipse(x, y + height / 2, 20);
+            ellipse(x, y + height / 2, 10);
             }
+    
 
 
    theta += 0.2;
