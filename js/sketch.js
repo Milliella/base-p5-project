@@ -13,32 +13,32 @@ function setup() {
     maxAngle = (windowWidth / frequency) * TWO_PI;
     createCanvas(windowWidth, windowHeight);
     noStroke();
+    let length = 10;
 
 }
 
 function draw() {
     background(0);
+    noStroke();
+    let length = 20;
     while (theta < maxAngle + offset) {
-        //sine wave 3
-        y = sin(theta - 0.4) * amplitude;
-        fill(140, 290, 290)
-        ellipse(x, y + height / 2, 16);
-        //sine wave 2
-        y = sin(theta - inc) * amplitude;
-        fill(150, 270, 270)
-        ellipse(x, y + height / 2, 16);
-        //sine wave 1
-        y = sin(theta) * amplitude;
-        fill(255, 200, 200)
-        ellipse(x, y + height / 2, 16);
-        //cosine wave
-        y = cos(theta) * amplitude;
-        fill(100, 200, 200)
-        ellipse(x, y + height / 2, 16);
-        theta += 0.2;
-        x = ((theta - offset) / maxAngle) * windowWidth;
+        amplitude = sin(theta - offset) * (windowHeight/2);
+        amplitude = ((theta-offset)/maxAngle)* (windowHeight/2);
+        for (i = length; i > 0; i --){
+        y = sin(theta - (i * 0.05)) * amplitude;
+        fill(255 - (255/length * i), 0, 0);
+        ellipse(x, y + height / 2, 20);
+        square(x, height/2 + y, 16);
+        }
+        for (i = length; i > 0; i --){
+            y = sin(theta - (i * 0.05)) * amplitude;
+            fill(255 - (255/length * i), 0,);
+            ellipse(x, y + height / 2, 20);
+            }
 
 
+   theta += 0.2;
+   x = ((theta - offset)/maxAngle) * windowWidth;
     }
     offset += inc;
     theta = offset;
