@@ -27,7 +27,7 @@ function draw() {
         for (i = length; i > 0; i --){
         y = sin(theta - (i * 0.05)) * amplitude;
         fill(255 - (255/length * i), 0, 0);
-        ellipse(x, y + height / 2, 20);
+        ellipse(x, y + height / 2, 20); //shape of the little trails 
         square(x, height/2 + y, 16);
         }
         for (i = length; i > 0; i --){
